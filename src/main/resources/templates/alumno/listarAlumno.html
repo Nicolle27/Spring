@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}" >
+    <head th:replace="layout/layout :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/3c0bd07c85.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div class="container-fluid" layout:fragment="page-content">
+            <h1>Alumnos</h1>
+            <hr>        
+            <button class="btn btn-danger">Add</button>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="alum : ${alumnos}">
+                        <th scope="row" th:text="${alum.idalumno}"></th>
+                        <td th:text="${alum.nombres}"></td>
+                        <td th:text="${alum.apellidos}"></td>
+                        <td th:text="${alum.telefono}"></td>
+                        <td th:text="${alum.correo}"></td>
+                        <td><a href="#"><i class="fas fa-edit"></i></a><a href="#"><i class="fas fa-trash"></i></a></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
